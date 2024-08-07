@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DioHospedagemHotel.Domain", "DioHospedagemHotel.Domain\DioHospedagemHotel.Domain.csproj", "{719BA77D-4953-4510-A97C-B1563F24C11C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DioHospedagemHotel.Application", "DioHospedagemHotel.Application\DioHospedagemHotel.Application.csproj", "{BD9C0F99-94F8-4225-ABDB-5078C9434752}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{719BA77D-4953-4510-A97C-B1563F24C11C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{719BA77D-4953-4510-A97C-B1563F24C11C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{719BA77D-4953-4510-A97C-B1563F24C11C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{719BA77D-4953-4510-A97C-B1563F24C11C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD9C0F99-94F8-4225-ABDB-5078C9434752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD9C0F99-94F8-4225-ABDB-5078C9434752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD9C0F99-94F8-4225-ABDB-5078C9434752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD9C0F99-94F8-4225-ABDB-5078C9434752}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

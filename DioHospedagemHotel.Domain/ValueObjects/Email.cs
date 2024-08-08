@@ -1,10 +1,15 @@
-﻿using DioHospedagemHotel.Domain.ResponseUtils;
+﻿using DioHospedagemHotel.Domain.Utils.ResponseUtils;
 using System.Text.RegularExpressions;
 
 namespace DioHospedagemHotel.Domain.ValueObjects
 {
     public class Email
     {
+        public Email(string emailAddress)
+        {
+            EmailAddress = emailAddress;
+        }
+
         public string EmailAddress { get; set; }
 
         public GenericResponse IsValid()

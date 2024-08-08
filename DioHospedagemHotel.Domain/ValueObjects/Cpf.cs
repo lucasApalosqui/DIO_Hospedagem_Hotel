@@ -1,10 +1,16 @@
-﻿using DioHospedagemHotel.Domain.ResponseUtils;
+﻿using DioHospedagemHotel.Domain.Utils.ResponseUtils;
 using System.Text.RegularExpressions;
 
 namespace DioHospedagemHotel.Domain.ValueObjects
 {
     public class Cpf
     {
+
+        public Cpf(string cpfAddress)
+        {
+            CpfAddress = cpfAddress;
+        }
+
         public string CpfAddress { get; set; }
 
         public GenericResponse IsValid()
@@ -14,12 +20,17 @@ namespace DioHospedagemHotel.Domain.ValueObjects
             if (CpfAddress.Length != 11)
                 response.AddMessage("Cpf deve conter 11 caracteres");
 
-            if (!int.TryParse(CpfAddress, out var result))
+            if(long.TryParse(CpfAddress, out var result) == false)
                 response.AddMessage("Cpf deve conter apenas números");
 
             response.Validate();
 
             return response;
+        }
+
+        public string Mask()
+        {
+            return long.Parse(CpfAddress).ToString(@"000\.000\.000\-00");
         }
     }
 }

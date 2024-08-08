@@ -1,24 +1,25 @@
 ﻿using DioHospedagemHotel.Domain.Entities;
+using System.Linq;
 
 namespace DioHospedagemHotel.Domain.Utils.FilesUtils
 {
     public static class WriteReserveData
     {
-        public static string[] WriteReserve(HospResponsavel hospRes, List<Hospede> hospedeList, Suite suite, Reserva reserva)
+        public static List<string> WriteReserve(HospResponsavel hospRes, List<Hospede> hospedeList, Suite suite, Reserva reserva)
         {
-            string[] lines =
-            {
-                $"Dados da Reserva \n",
-                $"Hospede Responsável: {hospRes.Name} {hospRes.LastName} RG: {hospRes.Rg.Mask()} CPF: {hospRes.Cpf.Mask()} Email: {hospRes.Email.EmailAddress} telefone: {hospRes.Phone.PhoneAddress}",
-                $"Hospedes Convidados"
+            List<string> lines = new List<string>();
+            lines.Add("Dados da Reserva");
 
-            };
+            lines.Add($"Hospede Responsável: {hospRes.Name} {hospRes.LastName} RG: {hospRes.Rg.Mask()} CPF: {hospRes.Cpf.Mask()} Email: {hospRes.Email.EmailAddress} telefone: {hospRes.Phone.PhoneAddress}");
+            lines.Add($"Hospedes Convidados");
+
+
             foreach (var hospede in hospedeList.OfType<HospConvidado>().ToList())
             {
-                lines.Append($"Nome Completo: {hospede.Name} {hospede.LastName} RG: {hospede.Rg}");
+                lines.Add($"Nome Completo: {hospede.Name} {hospede.LastName} RG: {hospede.Rg.Mask()}");
             }
 
-            lines.Append($"Cód Suite: {suite.Id} - Tipo: {suite.Tipo.ToString()} - Capacidade Máxima: {suite.Capacidade} - Valor Diária: {suite.ValorDiaria.ToString("C")} - Dias Reservados: {reserva.DiasReservados} - Valor Total: {reserva.CalcularValorTotal().ToString("C")}");
+            lines.Add($"Cód Suite: {suite.Id} - Tipo: {suite.Tipo.ToString()} - Capacidade Máxima: {suite.Capacidade} - Valor Diária: {suite.ValorDiaria.ToString("C")} - Dias Reservados: {reserva.DiasReservados} - Valor Total: {reserva.CalcularValorTotal().ToString("C")}");
 
             return lines;
         }

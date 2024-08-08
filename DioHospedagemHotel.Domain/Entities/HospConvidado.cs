@@ -6,7 +6,9 @@ namespace DioHospedagemHotel.Domain.Entities
     {
         public HospConvidado(string name, string lastName, Rg rg)
         {
-
+            Name = name;
+            LastName = lastName;
+            Rg = rg;
         }
     }
 }

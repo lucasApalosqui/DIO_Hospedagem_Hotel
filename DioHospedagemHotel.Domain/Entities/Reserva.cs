@@ -18,7 +18,7 @@ namespace DioHospedagemHotel.Domain.Entities
         public List<Hospede> HospedeList { get; private set; } = new List<Hospede>();
         public int DiasReservados { get; private set; }
 
-        public GenericResponse CadastrarHospedes(List<Hospede> hospConv)
+        public GenericResponse CadastrarHospedes(List<HospConvidado> hospConv)
         {
             GenericResponse response = new GenericResponse();
             if (hospConv.Count + 1 > Suite.Capacidade)
@@ -50,7 +50,7 @@ namespace DioHospedagemHotel.Domain.Entities
         public GenericResponse GerarArquivoComDadosDaReserva(string pathFile)
         {
             GenericResponse resp = new GenericResponse();
-            string[] linesToAdd = WriteReserveData.WriteReserve(_hospRes, HospedeList, Suite, this);
+            List<string> linesToAdd = WriteReserveData.WriteReserve(_hospRes, HospedeList, Suite, this);
             try
             {
                 File.WriteAllLines(pathFile, linesToAdd);

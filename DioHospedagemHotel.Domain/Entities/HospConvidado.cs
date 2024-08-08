@@ -2,7 +2,7 @@
 
 namespace DioHospedagemHotel.Domain.Entities
 {
-    public class HospConvidado
+    public class HospConvidado : Hospede
     {
         public HospConvidado(string name, string lastName, Rg rg)
         {

@@ -1,11 +1,10 @@
 ﻿using DioHospedagemHotel.Domain.ValueObjects;
-using System.Reflection.Metadata;
 
 namespace DioHospedagemHotel.Domain.Entities
 {
     public class HospResponsavel : Hospede
     {
-        public HospResponsavel(string name, string lastName, string rg, string cpf, Email email, Phone phone)
+        public HospResponsavel(string name, string lastName, Rg rg, Cpf cpf, Email email, Phone phone)
         {
             Name = name;
             LastName = lastName;
@@ -17,7 +16,7 @@ namespace DioHospedagemHotel.Domain.Entities
 
         public Phone Phone { get; set; }
         public Email Email { get; set; }
-        public string Cpf { get; set; }
+        public Cpf Cpf { get; set; }
 
     }
 }
